@@ -1,6 +1,8 @@
 ---
 title: Python SDK
 description: "Official Python SDK for the Supervisor content moderation API. Install, configure, and start moderating in a few lines."
+slug: sdks/python
+nav: Python
 ---
 
 # Python SDK

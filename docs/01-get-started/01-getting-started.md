@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 description: Learn to integrate Supervisor AI moderation API with step-by-step instructions. Create your account, get API keys, and make your first request.
+slug: getting-started
 ---
 
 # Getting Started

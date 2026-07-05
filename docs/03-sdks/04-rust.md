@@ -1,6 +1,8 @@
 ---
 title: Rust SDK
 description: "Official async Rust SDK for the Supervisor content moderation API. Built on Tokio and reqwest to add fast, context-aware moderation to your Rust app."
+slug: sdks/rust
+nav: Rust
 ---
 
 # Rust SDK

@@ -1,6 +1,8 @@
 ---
 title: Java SDK
 description: "Official Java SDK for the Supervisor content moderation API. Add it to any Maven or Gradle project to moderate text from any JVM application."
+slug: sdks/java
+nav: Java
 ---
 
 # Java SDK

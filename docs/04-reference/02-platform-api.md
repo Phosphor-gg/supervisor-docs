@@ -1,6 +1,8 @@
 ---
 title: Platform API
 description: Build moderation into your own product with the Supervisor Platform API: OAuth2 client credentials, per-user provisioning, and delegated moderation.
+slug: platform-api
+nav: Platform API
 ---
 
 # Platform API

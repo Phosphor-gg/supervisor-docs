@@ -1,6 +1,8 @@
 ---
 title: Discord Integration
 description: Set up Supervisor moderation bot for Discord with AI-powered filtering. Configure automatic message moderation and custom content filters.
+slug: integrations/discord
+nav: Discord
 ---
 
 # Discord Integration

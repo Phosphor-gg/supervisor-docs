@@ -1,6 +1,8 @@
 ---
 title: JavaScript / TypeScript SDK
 description: "Official JavaScript/TypeScript SDK for the Supervisor content moderation API for Node, Bun, Deno, and browsers."
+slug: sdks/javascript
+nav: JavaScript
 ---
 
 # JavaScript / TypeScript SDK

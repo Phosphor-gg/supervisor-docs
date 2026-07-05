@@ -1,6 +1,8 @@
 ---
 title: API Reference
 description: Complete API documentation for Supervisor content moderation. Explore endpoints, authentication, request formats, and best practices.
+slug: integrations/api
+nav: API Reference
 ---
 
 # API Reference
