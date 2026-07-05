@@ -37,28 +37,40 @@ Define how Supervisor handles flagged content:
 
 ## 4. Choose Labels
 
-Select which types of content to moderate:
+Select which types of content to moderate. All 16 labels can be toggled individually in the dashboard:
 
-- Sexual Content (S)
-- Harassment (H)
-- Violence (V)
-- Hate/Racism (HR)
-- Self-Harm (SH)
-- Sexual (Unlawful) (SU)
-- Sensitive Content (SE)
-- Spam (SP)
-- Toxicity (T)
+| Label | What it catches |
+| --- | --- |
+| Profanity | Swear words and obscene language |
+| Toxicity | Generally toxic or disrespectful behavior |
+| Harassment | Bullying, intimidation, or targeted harassment |
+| Hate/Racism | Hate speech, slurs, or discrimination |
+| Insult | Casual insults directed at a person or group |
+| Sexual | Sexually explicit or suggestive content |
+| Sexual (Unlawful) | Severe sexual content or content involving minors |
+| Sexual (Explicit) | Explicit sexual depictions or solicitation |
+| Sensitive Content | Other sensitive or inappropriate content |
+| Violence | Graphic violence or violent threats |
+| Self-Harm | Content promoting self-harm or suicide |
+| Medical/Injury | Medical trauma or physical injury descriptions |
+| Spam | Repetitive, unsolicited, or irrelevant content |
+| Promotional | Promotional or advertising content |
+| Scam/Incoherent | Scam, phishing, or incoherent content |
+| Illegal Activity | Content encouraging or describing illegal activity |
 
 ## 5. Context-Aware Moderation
 
-The bot automatically detects when a message needs conversation history for accurate moderation (requires Basic plan or higher):
+Turn on the Context-Aware Moderation toggle in the dashboard (requires a Basic plan or higher) and the bot understands messages as part of the conversation instead of in isolation:
 
-- The bot checks if the message needs context using the `include_context` parameter in the moderation request
-- If context is needed, it fetches recent message history from the channel
-- Message history is included in a follow-up moderation request for better accuracy
-- You can configure how many previous messages to include (configurable count)
+- The bot automatically detects when a message is ambiguous on its own
+- When needed, it reads recent channel history to judge the message in context
+- The Context History Count setting controls how many previous messages it may consider
 
 This ensures ambiguous messages like "stop it" or "not cool" are properly understood based on the conversation.
+
+## Image Moderation
+
+Turn on the Image Moderation toggle in the dashboard (requires a Standard plan or higher) and the bot also analyzes images posted in moderated channels, applying the same labels and actions as it does for text.
 
 ## 6. Advanced Configuration
 
@@ -85,10 +97,10 @@ All configuration is managed through the web dashboard at **https://supervisor.g
 
 When a message is sent in a moderated channel, the bot:
 
-1. Checks if the message needs conversation context
-2. Fetches message history if needed (configurable count)
-3. Sends the message to the moderation API with your selected model
-4. Takes configured actions if content is flagged (Delete/Warn/Timeout)
+1. Checks whether the message needs conversation context (when Context-Aware Moderation is on)
+2. Reads recent channel history if needed
+3. Analyzes the message (and images, when Image Moderation is on) with your selected AI model
+4. Takes your configured actions if content is flagged (Delete/Warn/Timeout)
 5. Sends detailed alerts to your alerts channel (if configured)
 
 Alert notifications include the flagged user, channel, content type, and message preview.
