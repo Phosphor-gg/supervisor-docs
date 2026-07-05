@@ -47,26 +47,21 @@ The API returns a JSON response with moderation results:
 {
     "flagged": false,
     "labels": [],
-    "scores": {
-        "profanity": 0.01,
-        "toxicity": 0.02,
-        "harassment": 0.02,
-        "hate": 0.01,
-        "insult": 0.01,
-        "sexual": 0.01,
-        "sexual/unlawful": 0.01,
-        "sexual/explicit": 0.01,
-        "sensitive": 0.02,
-        "violence": 0.01,
-        "self-harm": 0.01,
-        "medical": 0.01,
-        "spam": 0.03,
-        "promotional": 0.01,
-        "scam": 0.01,
-        "illegal": 0.01
-    }
+    "model_version": "2.0"
 }
 ```
+
+When content is flagged, `labels` lists the categories that triggered:
+
+```json
+{
+    "flagged": true,
+    "labels": ["toxicity", "insult"],
+    "model_version": "2.0"
+}
+```
+
+Depending on your request and plan, the response may also include `implicit_labels` (implicitly harmful content), and `needs_context` with `context_labels` when using context-aware moderation.
 
 ## 5. Model Tiers and Subscription Requirements
 
@@ -107,7 +102,6 @@ curl -X POST https://supervisor.gg/api/moderate \
 {
     "flagged": false,
     "labels": [],
-    "scores": {...},
     "needs_context": true,
     "context_labels": ["harassment"]
 }
