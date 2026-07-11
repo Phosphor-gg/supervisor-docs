@@ -247,7 +247,7 @@ Usage is billed based on credits consumed. Each request costs based on the conte
 
 **Example:** Moderating 1 KB of text with Sentinel costs ~£0.0041.
 
-The free tier includes 1 GBP of credits per month. View your credit usage in the Dashboard.
+The grandfathered free tier (accounts created before 13 July 2026 only) includes 0.25 GBP of credits per month; newer accounts start with a paid plan or Verified. View your credit usage in the Dashboard.
 
 **When your balance is exhausted:** API requests will fail with HTTP 402 Payment Required until credits are replenished through monthly reset or subscription upgrade.
 

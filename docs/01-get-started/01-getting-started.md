@@ -67,11 +67,11 @@ Depending on your request and plan, the response may also include `implicit_labe
 
 Your subscription tier determines which AI models you can access:
 
-- **Free Tier:** Observer model only (1 GBP of credits each month, no context)
+- **Free Tier (grandfathered):** Observer model only (0.25 GBP of credits each month, no context). The free tier is only available on accounts created before 13 July 2026; newer accounts start with a paid plan or Verified.
 - **Basic Tier:** Observer model only (includes context; see the pricing page for current credit allowances)
 - **Standard Tier:** Observer + Sentinel models (includes context; see the pricing page for current credit allowances)
 - **Premium Tier:** All models: Observer, Sentinel, Arbiter (includes context; see the pricing page for current credit allowances)
-- **Verified (lifetime):** Observer model only, like the free tier, but with a larger monthly credit allowance and paid once instead of billed monthly. If you also hold a subscription, the subscription applies while it is active and Verified takes over when it lapses.
+- **Verified (lifetime):** Observer model only, with a larger monthly credit allowance than the old free tier, paid once instead of billed monthly. If you also hold a subscription, the subscription applies while it is active and Verified takes over when it lapses.
 
 Attempting to use a model not included in your tier will result in an error.
 
