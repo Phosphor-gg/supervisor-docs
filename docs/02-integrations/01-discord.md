@@ -80,6 +80,8 @@ Additional configuration options available in the dashboard:
 - **Billing User:** The server owner can designate which user's API credits are used for moderation. By default, the server owner's credits are used.
 - **Model Selection:** Choose which AI model to use (Observer, Sentinel, or Arbiter) based on your subscription tier and accuracy needs
 - **Channel Scope:** Enable 'Moderate All Channels' to monitor every channel, or select specific channels to monitor
+- **Link Filtering:** Block Discord invites, media, and Nitro gift links, plus your own domain allow/block lists (`example.com`, `*.example.com`) — filtered before AI moderation, so blocked messages never use credits
+- **Word Filtering:** Block messages containing specific words or phrases. Matching is case-insensitive on whole words (`ass` won't match "class"); add `*` for partial matches (`spoiler*` matches "spoilers"). Also runs before AI moderation
 
 **Important:** The server owner must explicitly opt-in to use their account for billing. An account with sufficient credits and appropriate subscription tier is required.
 
