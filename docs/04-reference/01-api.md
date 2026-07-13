@@ -237,6 +237,10 @@ Building moderation into your own product for many of your own users? The Platfo
 | `scam` | Scam/Incoherent |
 | `illegal` | Illegal activity |
 
+## OpenAPI Specification
+
+A machine-readable [OpenAPI 3.0 spec](https://supervisor.gg/openapi.yaml) describes every endpoint, schema, and error shape on this page. Import it into Postman, Insomnia, or your codegen tool of choice.
+
 ## Credits and Billing
 
 Usage is billed based on credits consumed. Text is billed per byte at the model's rate:
