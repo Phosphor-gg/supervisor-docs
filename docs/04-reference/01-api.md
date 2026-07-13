@@ -239,13 +239,23 @@ Building moderation into your own product for many of your own users? The Platfo
 
 ## Credits and Billing
 
-Usage is billed based on credits consumed. Each request costs based on the content size and model used:
+Usage is billed based on credits consumed. Text is billed per byte at the model's rate:
 
-- **Observer:** ~£0.0013/KB
-- **Sentinel:** ~£0.0041/KB
-- **Arbiter:** ~£0.0123/KB
+| Model | Credits per byte | Cost per KB |
+| --- | --- | --- |
+| **Observer** | 1 | ~£0.0014 |
+| **Sentinel** | 2 | ~£0.0027 |
+| **Arbiter** | 4 | ~£0.0055 |
 
-**Example:** Moderating 1 KB of text with Sentinel costs ~£0.0041.
+**Images** are billed at a flat **1 credit per byte** of image data, regardless of model (~£0.0014/KB). If our OCR extracts readable text from the image, that text is additionally billed at the model's per-byte rate — you only pay text-model prices when the text models actually run.
+
+**Examples:**
+
+- Moderating 1 KB of text with Sentinel costs 2,048 credits (~£0.0027).
+- Moderating a 100 KB image with no readable text costs 102,400 credits (~£0.14) on any model.
+- Moderating a 100 KB image containing 200 bytes of readable text with Arbiter costs 102,400 + 800 = 103,200 credits (~£0.14).
+
+Cached results are free: repeating an identical (or near-identical, for images) request within the cache window consumes no credits.
 
 The grandfathered free tier (accounts created before 13 July 2026 only) includes 0.25 GBP of credits per month; newer accounts start with a paid plan or Verified. View your credit usage in the Dashboard.
 
@@ -257,7 +267,7 @@ Your subscription tier determines which AI models you can access:
 
 | Subscription Tier | Available Models | Monthly Allowance | Context Available |
 | --- | --- | --- | --- |
-| **Free** | Observer only | 1 GBP of credits | No |
+| **Free** (grandfathered, pre-13 July 2026 accounts) | Observer only | 0.25 GBP of credits | No |
 | **Basic** | Observer only | See the pricing page for current credit allowances | Yes |
 | **Standard** | Observer, Sentinel | See the pricing page for current credit allowances | Yes |
 | **Premium** | Observer, Sentinel, Arbiter | See the pricing page for current credit allowances | Yes |
