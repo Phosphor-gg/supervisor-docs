@@ -11,19 +11,35 @@ Official Java client (Java 17+), built on the JDK HttpClient + Jackson.
 
 ## Install
 
-Gradle:
+The SDK is distributed from GitHub via [JitPack](https://jitpack.io/#Phosphor-gg/supervisor-sdk-java).
+
+Gradle — add the JitPack repository, then the dependency:
 
 ```kotlin
-implementation("gg.supervisor:supervisor-sdk:0.1.0")
+repositories {
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") }
+}
+
+dependencies {
+    implementation("com.github.Phosphor-gg:supervisor-sdk-java:v0.2.2")
+}
 ```
 
 Maven:
 
 ```xml
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+
 <dependency>
-  <groupId>gg.supervisor</groupId>
-  <artifactId>supervisor-sdk</artifactId>
-  <version>0.1.0</version>
+  <groupId>com.github.Phosphor-gg</groupId>
+  <artifactId>supervisor-sdk-java</artifactId>
+  <version>v0.2.2</version>
 </dependency>
 ```
 

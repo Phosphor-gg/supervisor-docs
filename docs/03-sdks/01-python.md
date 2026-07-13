@@ -12,7 +12,13 @@ Official async + sync Python client for the Supervisor moderation API.
 ## Install
 
 ```bash
-pip install supervisor-sdk
+pip install "git+https://github.com/Phosphor-gg/supervisor-sdk-python.git"
+```
+
+Or with [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv pip install "git+https://github.com/Phosphor-gg/supervisor-sdk-python.git"
 ```
 
 Requires Python 3.10+. Grab an API key from your dashboard under API Keys.

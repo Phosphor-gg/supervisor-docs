@@ -12,8 +12,10 @@ Official TypeScript client for Node, Bun, Deno, and the browser. Zero dependenci
 ## Install
 
 ```bash
-npm install supervisor-sdk
+npm install github:Phosphor-gg/supervisor-sdk-js
 ```
+
+The package builds on install, so it works with npm, pnpm, and yarn straight from GitHub.
 
 Ships with full type definitions. Grab an API key from your dashboard under API Keys.
 
