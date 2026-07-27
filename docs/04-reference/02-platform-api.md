@@ -62,7 +62,7 @@ curl -X POST https://supervisor.gg/api/platform/moderate \
     "model": "auto"
   }'
 
-# -> { "flagged": false, "labels": [], "model_version": "2.0" }
+# -> { "flagged": false, "labels": [], "model_version": "2.1" }
 ```
 
 Note: moderation requires the user to have authorized your platform. If they haven't, the call returns 403: send them through the authorization (consent) flow first.

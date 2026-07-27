@@ -212,9 +212,9 @@ Building moderation into your own product for many of your own users? The Platfo
 
 ## Models
 
-- **observer** (v2.0): Fast, lightweight model for high-volume applications (~£0.0013/KB)
-- **sentinel** (v2.0): Balanced model with good accuracy and speed (~£0.0041/KB)
-- **arbiter** (v2.0): Most accurate model for critical moderation (~£0.0123/KB)
+- **observer** (v2.1): Fast, lightweight model for high-volume applications (~£0.0013/KB)
+- **sentinel** (v2.1): Balanced model with good accuracy and speed (~£0.0041/KB)
+- **arbiter** (v2.1): Most accurate model for critical moderation (~£0.0123/KB)
 
 ## Labels
 

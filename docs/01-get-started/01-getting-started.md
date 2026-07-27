@@ -47,7 +47,7 @@ The API returns a JSON response with moderation results:
 {
     "flagged": false,
     "labels": [],
-    "model_version": "2.0"
+    "model_version": "2.1"
 }
 ```
 
@@ -57,7 +57,7 @@ When content is flagged, `labels` lists the categories that triggered:
 {
     "flagged": true,
     "labels": ["toxicity", "insult"],
-    "model_version": "2.0"
+    "model_version": "2.1"
 }
 ```
 
