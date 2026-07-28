@@ -216,6 +216,67 @@ Building moderation into your own product for many of your own users? The Platfo
 - **sentinel** (v2.1): Balanced model with good accuracy and speed (~£0.0041/KB)
 - **arbiter** (v2.1): Most accurate model for critical moderation (~£0.0123/KB)
 
+## Video moderation
+
+`POST /api/moderation/user/video` moderates a short video. Requires the
+video-moderation feature on your plan.
+
+Send the whole clip. Supervisor decodes it, picks out the frames where the
+picture actually changes rather than every frame, and moderates those through
+the same pipeline as images. A sixty second clip costs a handful of frames, not
+hundreds.
+
+Limits, all enforced server-side:
+
+| Limit | Value |
+| --- | --- |
+| File size | 10 MB |
+| Duration | 60 seconds |
+| Frames analysed | 20 maximum |
+
+```bash
+curl -X POST https://supervisor.gg/api/moderation/user/video \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "video": "BASE64_ENCODED_VIDEO",
+    "model": "arbiter"
+  }'
+```
+
+```json
+{
+  "flagged": true,
+  "labels": ["violence"],
+  "frames": [
+    { "timestamp_ms": 0, "flagged": false, "labels": [] },
+    { "timestamp_ms": 2133, "flagged": true, "labels": ["violence"] }
+  ],
+  "frames_analysed": 2,
+  "duration_secs": 6.4,
+  "codec": "h264",
+  "decoder": "nvdec"
+}
+```
+
+`frames` carries a `timestamp_ms` per analysed frame, so a flagged moment can be
+located in the clip rather than only reported for the video as a whole. `labels`
+at the top level is the union across every frame.
+
+H.264 and HEVC decode on the GPU; VP9 and AV1 fall back to software decode and
+are slower. `decoder` reports which ran.
+
+The SDKs wrap this, and check the size limit locally so an oversized clip fails
+before it is uploaded:
+
+```python
+result = client.moderate_video("clip.mp4")
+```
+
+```javascript
+const result = await client.moderateVideo(videoBytes);
+```
+
 ## Labels
 
 | Label | Description |
@@ -251,7 +312,9 @@ Usage is billed based on credits consumed. Text is billed per byte at the model'
 | **Sentinel** | 2 | ~£0.0027 |
 | **Arbiter** | 4 | ~£0.0055 |
 
-**Images** are billed at a flat **1 credit per byte** of image data, regardless of model (~£0.0014/KB). If our OCR extracts readable text from the image, that text is additionally billed at the model's per-byte rate — you only pay text-model prices when the text models actually run.
+**Video frames** are billed at **a quarter of the image rate**, and extracted at a smaller size than a standalone image, so a full 20 frame clip costs far less than 20 images. Batched requests get **50% off**, which applies to video frames since a clip goes through as one batch.
+
+**Images** are billed at a flat **1 credit per byte** of image data, regardless of model (~£0.0014/KB). If our OCR extracts readable text from the image, that text is additionally billed at the model's per-byte rate, so you only pay text-model prices when the text models actually run.
 
 **Examples:**
 
