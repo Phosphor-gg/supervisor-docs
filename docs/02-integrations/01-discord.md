@@ -60,7 +60,7 @@ Select which types of content to moderate. All 16 labels can be toggled individu
 
 ## 5. Context-Aware Moderation
 
-Turn on the Context-Aware Moderation toggle in the dashboard (requires a Basic plan or higher) and the bot understands messages as part of the conversation instead of in isolation:
+Turn on the Context-Aware Moderation toggle in the dashboard (included with Premium) and the bot understands messages as part of the conversation instead of in isolation:
 
 - The bot automatically detects when a message is ambiguous on its own
 - When needed, it reads recent channel history to judge the message in context
@@ -70,7 +70,7 @@ This ensures ambiguous messages like "stop it" or "not cool" are properly unders
 
 ## Image Moderation
 
-Turn on the Image Moderation toggle in the dashboard (requires a Standard plan or higher) and the bot also analyzes images posted in moderated channels, applying the same labels and actions as it does for text.
+Turn on the Image Moderation toggle in the dashboard (included with Premium) and the bot also analyzes images posted in moderated channels, applying the same labels and actions as it does for text.
 
 ## 6. Advanced Configuration
 
@@ -78,12 +78,12 @@ Additional configuration options available in the dashboard:
 
 - **Role Exclusions/Inclusions:** Choose specific roles to exclude from moderation or only moderate specific roles
 - **Billing User:** The server owner can designate which user's API credits are used for moderation. By default, the server owner's credits are used.
-- **Model Selection:** Choose which AI model to use (Observer, Sentinel, or Arbiter) based on your subscription tier and accuracy needs
+- **Model Selection:** Choose which AI model to use (Observer, Sentinel, or Arbiter) based on the accuracy you need
 - **Channel Scope:** Enable 'Moderate All Channels' to monitor every channel, or select specific channels to monitor
 - **Link Filtering:** Block Discord invites, media, and Nitro gift links, plus your own domain allow/block lists (`example.com`, `*.example.com`) — filtered before AI moderation, so blocked messages never use credits
 - **Word Filtering:** Block messages containing specific words or phrases. Matching is case-insensitive on whole words (`ass` won't match "class"); add `*` for partial matches (`spoiler*` matches "spoilers"). Also runs before AI moderation
 
-**Important:** The server owner must explicitly opt-in to use their account for billing. An account with sufficient credits and appropriate subscription tier is required.
+**Important:** The server owner must explicitly opt-in to use their account for billing. An account with sufficient credits and the required plan is required.
 
 ## 7. Bot Commands
 

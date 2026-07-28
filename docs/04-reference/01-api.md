@@ -35,7 +35,7 @@ Moderate text content using AI models. Optionally include context analysis to de
     "image": "base64 string (optional, required if no text)",
     "model": "observer|sentinel|arbiter (optional, default: sentinel)",
     "enabled_labels": ["profanity", "toxicity", "harassment", "hate", "insult", "sexual", "sexual/unlawful", "sexual/explicit", "sensitive", "violence", "self-harm", "medical", "spam", "promotional", "scam", "illegal"] (optional),
-    "include_context": boolean (optional, default: false, requires Basic plan or higher)
+    "include_context": boolean (optional, default: false, included with Premium)
 }
 ```
 
@@ -145,7 +145,7 @@ Moderate multiple texts in a single request. Useful for processing large volumes
     "texts": ["string"] (required array),
     "model": "observer|sentinel|arbiter (optional, default: sentinel)",
     "enabled_labels": ["profanity", "toxicity", "harassment", "hate", "insult", "sexual", "sexual/unlawful", "sexual/explicit", "sensitive", "violence", "self-harm", "medical", "spam", "promotional", "scam", "illegal"] (optional),
-    "include_context": boolean (optional, default: false, requires Basic plan or higher)
+    "include_context": boolean (optional, default: false, included with Premium)
 }
 ```
 
@@ -328,24 +328,24 @@ The grandfathered free tier (accounts created before 13 July 2026 only) includes
 
 **When your balance is exhausted:** API requests will fail with HTTP 402 Payment Required until credits are replenished through monthly reset or subscription upgrade.
 
-## Subscription Tier Requirements
+## Model Access
 
-Your subscription tier determines which AI models you can access:
+Premium is the only plan on sale and includes every model. The remaining rows are closed plans, listed for the accounts still on them:
 
-| Subscription Tier | Available Models | Monthly Allowance | Context Available |
+| Plan | Available Models | Monthly Allowance | Context Available |
 | --- | --- | --- | --- |
-| **Free** (grandfathered, pre-13 July 2026 accounts) | Observer only | 0.25 GBP of credits | No |
-| **Basic** | Observer only | See the pricing page for current credit allowances | Yes |
-| **Standard** | Observer, Sentinel | See the pricing page for current credit allowances | Yes |
 | **Premium** | Observer, Sentinel, Arbiter | See the pricing page for current credit allowances | Yes |
+| **Legacy Free** (pre-13 July 2026 accounts) | Observer only | 0.25 GBP of credits | No |
+| **Legacy Basic** (closed) | Observer only | See the pricing page for current credit allowances | Yes |
+| **Legacy Standard** (closed) | Observer, Sentinel | See the pricing page for current credit allowances | Yes |
 
-**Important:** Attempting to use a model not included in your subscription tier will result in a 400 Bad Request error. Upgrade your plan to access higher-tier models.
+**Important:** Requesting a model your plan does not include returns a 400 Bad Request error.
 
 ## Error Codes
 
 | Code | Description |
 | --- | --- |
-| `400` | Bad request: invalid parameters or unsupported model for your subscription tier |
+| `400` | Bad request: invalid parameters or a model your plan does not include |
 | `401` | Unauthorized: invalid or missing API key |
 | `402` | Payment Required: insufficient credits to process request |
 | `429` | Too Many Requests: rate limit exceeded |

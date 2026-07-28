@@ -63,16 +63,16 @@ When content is flagged, `labels` lists the categories that triggered:
 
 Depending on your request and plan, the response may also include `implicit_labels` (implicitly harmful content), and `needs_context` with `context_labels` when using context-aware moderation.
 
-## 5. Model Tiers and Subscription Requirements
+## 5. Model Access
 
-Your subscription tier determines which AI models you can access:
+Premium is the only plan, and it includes all three models: Observer, Sentinel and Arbiter. It also includes context-aware moderation, image and video moderation, implicit moderation, custom bot appearance and the Platform API. See the pricing page for current credit allowances.
 
-- **Free Tier (grandfathered):** Observer model only (0.25 GBP of credits each month, no context). The free tier is only available on accounts created before 13 July 2026; newer accounts start with a paid plan.
-- **Basic Tier:** Observer model only (includes context; see the pricing page for current credit allowances)
-- **Standard Tier:** Observer + Sentinel models (includes context; see the pricing page for current credit allowances)
-- **Premium Tier:** All models: Observer, Sentinel, Arbiter (includes context; see the pricing page for current credit allowances)
+Two closed plans still exist for the accounts already on them:
 
-Attempting to use a model not included in your tier will result in an error.
+- **Legacy Free** (accounts created before 13 July 2026): Observer model only, 0.25 GBP of credits each month, no context.
+- **Legacy Basic and Standard**: Observer only, and Observer plus Sentinel respectively, both with context.
+
+Requesting a model your plan does not include returns an error.
 
 ## 6. Credit Management
 
@@ -86,7 +86,7 @@ Each moderation request consumes credits based on content size and model used:
 
 ## 7. Advanced: Context-Aware Moderation
 
-Some messages may need conversation history for accurate moderation. Use the `include_context` parameter to check (requires Basic plan or higher):
+Some messages may need conversation history for accurate moderation. Use the `include_context` parameter to check (included with Premium):
 
 ```bash
 curl -X POST https://supervisor.gg/api/moderate \
