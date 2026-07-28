@@ -61,11 +61,15 @@ System.out.println(result.flagged() + " " + result.labels());
 ```java
 client.moderate(ModerationRequest)            -> ModerationResponse
 client.moderateBatch(BatchModerationRequest) -> List<ModerationResponse>
+client.moderateVideo(byte[])                 -> VideoModerationResponse
+client.moderateVideo(VideoModerationRequest, byte[]) -> VideoModerationResponse
 client.checkUsername("user123")              -> UsernameCheckResponse
 client.getLabels()                           -> Map<String, String>
 ```
 
 Configure the builder with .baseUrl(url) and .timeout(seconds).
+
+A VideoModerationResponse carries flagged, labels (the union across frames), frames (each with timestampMs, flagged and labels), framesAnalysed, durationSecs, codec and decoder. The 10 MB size limit is checked locally, so an oversized clip throws before it is uploaded.
 
 ## Platform API
 
