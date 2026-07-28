@@ -39,6 +39,9 @@ await client.moderate({ text, image, model, enabled_labels, include_context });
 // Many at once -> ModerationResponse[]
 await client.moderateBatch({ texts, images, model });
 
+// A short video: bytes, a Blob, or base64 -> VideoModerationResponse
+await client.moderateVideo(videoBytes, { model, enabled_labels });
+
 // Username policy check -> { flagged, score }
 await client.checkUsername("user123");
 
@@ -47,6 +50,8 @@ await client.getLabels();
 ```
 
 All methods return Promises. model is "auto" | "observer" | "sentinel" | "arbiter".
+
+A VideoModerationResponse has flagged, labels (the union across frames), frames (each with timestamp_ms, flagged and labels), frames_analysed, duration_secs, codec and decoder. The 10 MB size limit is checked locally, so an oversized clip rejects before it is uploaded.
 
 ## Platform API
 

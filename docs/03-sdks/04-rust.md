@@ -41,9 +41,13 @@ async fn main() -> anyhow::Result<()> {
 ```rust
 client.moderate(ModerationRequest) -> Result<ModerationResponse>
 client.moderate_batch(BatchModerationRequest) -> Result<Vec<ModerationResponse>>
+client.moderate_video(&[u8]) -> Result<VideoModerationResponse>
+client.moderate_video_with(&[u8], model, enabled_labels) -> Result<VideoModerationResponse>
 client.check_username("user123") -> Result<UsernameCheckResponse>
 client.get_labels() -> Result<HashMap<String, String>>
 ```
+
+A VideoModerationResponse carries flagged, labels (the union across frames), frames (each with timestamp_ms, flagged and labels), frames_analysed, duration_secs, codec and decoder. The 10 MB size limit is checked locally, so an oversized clip errors before it is uploaded.
 
 Use SupervisorClient::with_base_url(key, url) to point at a custom base URL.
 

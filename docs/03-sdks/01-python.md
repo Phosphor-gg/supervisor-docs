@@ -57,6 +57,9 @@ await client.moderate(text, image=None, model=None, enabled_labels=None, include
 # Many at once -> list[ModerationResponse]
 await client.moderate_batch(texts, images=None, model=None, enabled_labels=None)
 
+# A short video, by path -> VideoModerationResponse
+await client.moderate_video("clip.mp4", model=None, enabled_labels=None)
+
 # Username policy check -> UsernameCheckResponse(flagged, score)
 await client.check_username("user123")
 
@@ -65,6 +68,8 @@ await client.get_labels()
 ```
 
 A ModerationResponse has: flagged (bool), labels (list[str]), implicit_labels, model_version, and optional context fields.
+
+A VideoModerationResponse has: flagged, labels (the union across frames), frames (each with timestamp_ms, flagged and labels), frames_analysed, duration_secs, codec and decoder. The 10 MB size limit is checked locally, so an oversized clip raises before it is uploaded.
 
 ## Platform API
 

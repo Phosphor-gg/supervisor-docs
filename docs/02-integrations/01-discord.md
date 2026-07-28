@@ -72,6 +72,12 @@ This ensures ambiguous messages like "stop it" or "not cool" are properly unders
 
 Turn on the Image Moderation toggle in the dashboard (included with Premium) and the bot also analyzes images posted in moderated channels, applying the same labels and actions as it does for text.
 
+## Video Moderation
+
+Turn on the Video Moderation toggle in the dashboard (included with Premium) and the bot also analyzes video attachments posted in moderated channels. It is off by default, so enabling it is a deliberate choice.
+
+The bot only sends the frames where the picture actually changes, not every frame, so a clip costs a handful of frames rather than hundreds. Attachments larger than 10 MB or longer than 60 seconds are skipped. See the [API reference](/docs/reference/api) for the limits and the response shape.
+
 ## 6. Advanced Configuration
 
 Additional configuration options available in the dashboard:
@@ -80,7 +86,7 @@ Additional configuration options available in the dashboard:
 - **Billing User:** The server owner can designate which user's API credits are used for moderation. By default, the server owner's credits are used.
 - **Model Selection:** Choose which AI model to use (Observer, Sentinel, or Arbiter) based on the accuracy you need
 - **Channel Scope:** Enable 'Moderate All Channels' to monitor every channel, or select specific channels to monitor
-- **Link Filtering:** Block Discord invites, media, and Nitro gift links, plus your own domain allow/block lists (`example.com`, `*.example.com`) — filtered before AI moderation, so blocked messages never use credits
+- **Link Filtering:** Block Discord invites, media, and Nitro gift links, plus your own domain allow/block lists (`example.com`, `*.example.com`), filtered before AI moderation, so blocked messages never use credits
 - **Word Filtering:** Block messages containing specific words or phrases. Matching is case-insensitive on whole words (`ass` won't match "class"); add `*` for partial matches (`spoiler*` matches "spoilers"). Also runs before AI moderation
 
 **Important:** The server owner must explicitly opt-in to use their account for billing. An account with sufficient credits and the required plan is required.

@@ -13,7 +13,7 @@ Official Java client (Java 17+), built on the JDK HttpClient + Jackson.
 
 The SDK is distributed from GitHub via [JitPack](https://jitpack.io/#Phosphor-gg/supervisor-sdk-java).
 
-Gradle — add the JitPack repository, then the dependency:
+Gradle: add the JitPack repository, then the dependency:
 
 ```kotlin
 repositories {
