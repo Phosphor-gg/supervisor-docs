@@ -212,9 +212,9 @@ Building moderation into your own product for many of your own users? The Platfo
 
 ## Models
 
-- **observer** (v2.1): Fast, lightweight model for high-volume applications (~£0.0013/KB)
-- **sentinel** (v2.1): Balanced model with good accuracy and speed (~£0.0041/KB)
-- **arbiter** (v2.1): Most accurate model for critical moderation (~£0.0123/KB)
+- **observer** (v2.1): Fast, lightweight model for high-volume applications (~£0.0014/KB)
+- **sentinel** (v2.1): Balanced model with good accuracy and speed (~£0.0027/KB)
+- **arbiter** (v2.1): Most accurate model for critical moderation (~£0.0055/KB)
 
 ## Video moderation
 
@@ -304,23 +304,23 @@ A machine-readable [OpenAPI 3.0 spec](https://supervisor.gg/openapi.yaml) descri
 
 ## Credits and Billing
 
-Usage is billed based on credits consumed. Text is billed per byte at the model's rate:
+Text is billed by the byte at the model's rate:
 
-| Model | Credits per byte | Cost per KB |
-| --- | --- | --- |
-| **Observer** | 1 | ~£0.0014 |
-| **Sentinel** | 2 | ~£0.0027 |
-| **Arbiter** | 4 | ~£0.0055 |
+| Model | Cost per KB |
+| --- | --- |
+| **Observer** | ~£0.0014 |
+| **Sentinel** | ~£0.0027 |
+| **Arbiter** | ~£0.0055 |
 
 **Video frames** are billed at **a quarter of the image rate**, and extracted at a smaller size than a standalone image, so a full 20 frame clip costs far less than 20 images. Batched requests get **50% off**, which applies to video frames since a clip goes through as one batch.
 
-**Images** are billed at a flat **1 credit per byte** of image data, regardless of model (~£0.0014/KB). If our OCR extracts readable text from the image, that text is additionally billed at the model's per-byte rate, so you only pay text-model prices when the text models actually run.
+**Images** are billed at a flat **~£0.0014/KB** of image data, the Observer rate, regardless of model. If our OCR extracts readable text from the image, that text is additionally billed at the model's rate, so you only pay text-model prices when the text models actually run.
 
 **Examples:**
 
-- Moderating 1 KB of text with Sentinel costs 2,048 credits (~£0.0027).
-- Moderating a 100 KB image with no readable text costs 102,400 credits (~£0.14) on any model.
-- Moderating a 100 KB image containing 200 bytes of readable text with Arbiter costs 102,400 + 800 = 103,200 credits (~£0.14).
+- Moderating 1 KB of text with Sentinel costs about £0.0027.
+- Moderating a 100 KB image with no readable text costs about £0.14 on any model.
+- Moderating a 100 KB image containing 200 bytes of readable text with Arbiter costs about £0.14.
 
 Cached results are free: repeating an identical (or near-identical, for images) request within the cache window consumes no credits.
 

@@ -25,9 +25,9 @@ Navigate to the API Keys section in your dashboard to generate your first API ke
 
 Use your API key to moderate content. Select a model:
 
-- Observer (~£0.0013/KB)
-- Sentinel (~£0.0041/KB)
-- Arbiter (~£0.0123/KB)
+- Observer (~£0.0014/KB)
+- Sentinel (~£0.0027/KB)
+- Arbiter (~£0.0055/KB)
 
 ```bash
 curl -X POST https://supervisor.gg/api/moderate \
@@ -78,9 +78,9 @@ Requesting a model your plan does not include returns an error.
 
 Each moderation request consumes credits based on content size and model used:
 
-- Observer: ~£0.0013/KB
-- Sentinel: ~£0.0041/KB
-- Arbiter: ~£0.0123/KB
+- Observer: ~£0.0014/KB
+- Sentinel: ~£0.0027/KB
+- Arbiter: ~£0.0055/KB
 
 **When your balance is exhausted:** Requests will fail with a 402 Payment Required error until credits are replenished (monthly reset or upgrade).
 
