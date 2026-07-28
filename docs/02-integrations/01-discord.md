@@ -76,7 +76,7 @@ Turn on the Image Moderation toggle in the dashboard (included with Premium) and
 
 Turn on the Video Moderation toggle in the dashboard (included with Premium) and the bot also analyzes video attachments posted in moderated channels. It is off by default, so enabling it is a deliberate choice.
 
-The bot only sends the frames where the picture actually changes, not every frame, so a clip costs a handful of frames rather than hundreds. Attachments larger than 10 MB or longer than 60 seconds are skipped. See the [API reference](/docs/reference/api) for the limits and the response shape.
+Only the frames where the picture actually changes are analysed, not every frame, so a clip costs a handful of frames rather than hundreds. Attachments over 10 MB are skipped without being downloaded; clips longer than 60 seconds are rejected once decoded and are not moderated. See the [API reference](/docs/integrations/api) for the limits and the response shape.
 
 ## 6. Advanced Configuration
 
