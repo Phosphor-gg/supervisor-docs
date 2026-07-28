@@ -324,7 +324,7 @@ Usage is billed based on credits consumed. Text is billed per byte at the model'
 
 Cached results are free: repeating an identical (or near-identical, for images) request within the cache window consumes no credits.
 
-The grandfathered free tier (accounts created before 13 July 2026 only) includes 0.25 GBP of credits per month; newer accounts start with a paid plan or Verified. View your credit usage in the Dashboard.
+The grandfathered free tier (accounts created before 13 July 2026 only) includes 0.25 GBP of credits per month; newer accounts start with a paid plan. View your credit usage in the Dashboard.
 
 **When your balance is exhausted:** API requests will fail with HTTP 402 Payment Required until credits are replenished through monthly reset or subscription upgrade.
 

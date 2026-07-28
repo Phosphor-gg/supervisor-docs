@@ -98,8 +98,7 @@ List what you can sell, then mint a checkout link per user and redirect them to 
 # What can I sell?
 GET /api/platform/products
 # -> { "plans": [ { "price_id", "tier", "billing_cycle", "amount", "currency", ... } ],
-#      "credit_packs": [ { "price_id", "name", "price_cents", "credits_amount", ... } ],
-#      "lifetime": { "price_id", "name", "amount", "currency", "monthly_credits" } }
+#      "credit_packs": [ { "price_id", "name", "price_cents", "credits_amount", ... } ] }
 
 # Subscription checkout (new subscription for the user)
 POST /api/platform/checkout
@@ -113,19 +112,13 @@ POST /api/platform/checkout-credits
   "success_url": "...", "cancel_url": "..." }
 # -> { "checkout_url": "..." }
 
-# Verified lifetime plan (one-time payment, same revenue share)
-POST /api/platform/checkout
-{ "user_email": "...", "tier": "verified", "billing_cycle": "monthly",
-  "success_url": "...", "cancel_url": "..." }
-# -> { "checkout_url": "..." } (billing_cycle is ignored for verified)
-
 # Switch an existing subscription you sold (same Stripe customer, prorated)
 POST /api/platform/change-plan
 { "user_email": "...", "tier": "premium", "billing_cycle": "annual" }
 # -> { "subscription_id": "sub_...", "tier": "premium", "billing_cycle": "annual" }
 ```
 
-Rules: the user must have authorized your platform (403 otherwise). Checkout returns 400 if the user already has an active subscription; use change-plan instead. Change-plan only works on subscriptions that were created through your platform. Revenue attribution is set when the subscription is created and is preserved across plan changes. The Verified lifetime plan (tier "verified") is a one-time purchase: it can be sold even to users with an active subscription (the subscription rides out its paid period, then Verified takes over), returns 400 if the user already owns it, and cannot be used with change-plan.
+Rules: the user must have authorized your platform (403 otherwise). Checkout returns 400 if the user already has an active subscription; use change-plan instead. Change-plan only works on subscriptions that were created through your platform. Revenue attribution is set when the subscription is created and is preserved across plan changes.
 
 ## User credits
 
