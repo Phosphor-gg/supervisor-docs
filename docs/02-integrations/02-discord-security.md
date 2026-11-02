@@ -25,7 +25,7 @@ The base version of every feature is free. **Advanced Security** is included wit
 | Auto lockdown, `/lock` channel, server and joins | Yes | Yes |
 | `/lock` role permissions and everything | | Yes |
 | Quarantine | Yes | Yes |
-| Verification | Yes | Captcha colours, noise and expiry |
+| Verification | Yes | Yes |
 | Backups | | Yes |
 | Moderation commands, cases, notes, warn thresholds | Yes | Yes |
 
@@ -135,11 +135,7 @@ Unlocking removes only what the lock added.
 
 ## Verification
 
-Turn on verification and pick a verified role and verify channel in the dashboard, then send the verify message. Methods:
-
-- **Web:** a Cloudflare check on supervisor.gg
-- **Captcha:** an image solved inside Discord, 4 to 8 characters, 3 attempts, expires within 5 minutes
-- **Button:** one click
+Turn on verification and pick a verified role and verify channel in the dashboard, then send the verify message. Members verify with a Cloudflare check on supervisor.gg.
 
 Options: **only suspicious accounts** (younger than 7 days or without an avatar; everyone else gets the role on join), and a **time limit** with an action for members who have not verified.
 
@@ -181,7 +177,7 @@ Moderator roles and trusted users can use these without the Discord permission. 
 
 ## Logs
 
-Security events go to the **security log channel**, or the moderation alerts channel if none is set. Each type (anti-nuke, join gate, join raid, heat, verification, moderation commands, lockdown) can have its own channel.
+Security events go to the **security log channel**, or the moderation alerts channel if none is set.
 
 ## Data retention
 
