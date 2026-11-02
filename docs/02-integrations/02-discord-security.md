@@ -35,8 +35,8 @@ Premium settings can be saved on a free server. They take effect once the server
 
 1. Give Supervisor these permissions: **View Audit Log**, **Manage Roles**, **Manage Channels**, **Ban Members**, **Kick Members**, **Timeout Members**, **Manage Messages** and **Manage Webhooks**.
 2. Drag Supervisor's role near the top of the role list. It can only act on members whose top role is below its own.
-3. Run `/security`. It lists missing permissions and warns if the role is too low.
-4. Run `/security setup:true` to create the **Quarantined** role and hide every channel from it.
+3. Run `/security status`. It lists missing permissions and warns if the role is too low.
+4. Run `/security setup` to create the **Quarantined** role and hide every channel from it.
 5. Add your trusted users in the dashboard, switch on the features you want, and save.
 
 ## Trusted users and immune roles
@@ -173,7 +173,7 @@ Supervisor backs up roles, channels, permission overwrites and server settings e
 | `/cases [user] [moderator] [kind] [number]`, `/case number [reason] [open]` | Timeout Members |
 | `/verify user` | Manage Roles |
 | `/backup create`, `list`, `load`, `delete` | Owner or trusted user (Premium) |
-| `/security [setup]` | Manage Server |
+| `/security status`, `/security setup` | Manage Server |
 
 Durations accept `30s`, `10m`, `2h`, `7d`, `1w` and combinations such as `1h30m`. A bare number is minutes. Timeouts are capped at 28 days. `/purge` cannot delete messages older than 14 days.
 
