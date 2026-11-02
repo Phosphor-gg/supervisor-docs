@@ -16,7 +16,7 @@ Add Supervisor to your Discord server:
 1. Go to Dashboard > Integrations
 2. Click 'Add to Discord'
 3. Select your server and authorize the bot
-4. **Grant required permissions:** The bot requires 'Manage Messages' permission to delete flagged content and 'Read Message History' to fetch conversation context
+4. **Grant required permissions:** The bot requires 'Manage Messages' permission to delete flagged content and 'Read Message History' to fetch conversation context. The [security features](/docs/integrations/discord-security) need more, listed on that page
 
 **Note:** You must be the server owner or have administrator permissions to add and configure Supervisor.
 
@@ -93,13 +93,18 @@ Additional configuration options available in the dashboard:
 
 ## 7. Bot Commands
 
-The Supervisor bot provides a single command for getting help and configuration instructions:
-
 ```text
 /help - Get help and view configuration URL
+/warn - Warn a member, log it, and apply warn thresholds
 ```
 
+Moderation and security commands (`/ban`, `/kick`, `/timeout`, `/purge`, `/lock`, `/quarantine`, `/cases`, `/backup` and more) are listed on [Discord Security](/docs/integrations/discord-security).
+
 All configuration is managed through the web dashboard at **https://supervisor.gg**
+
+## Security
+
+Anti-nuke, the join gate, raid detection, heat spam filtering, lockdown, quarantine, verification methods and backups are covered on [Discord Security](/docs/integrations/discord-security). They use no credits.
 
 ## 8. How It Works
 
@@ -113,4 +118,4 @@ When a message is sent in a moderated channel, the bot:
 
 Alert notifications include the flagged user, channel, content type, and message preview.
 
-All moderation uses your account's credits. View usage in the Dashboard.
+AI moderation uses your account's credits. View usage in the Dashboard. The security features do not use credits.
